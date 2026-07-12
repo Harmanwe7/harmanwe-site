@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Harmanwe — Crafting Exceptional Places to Call Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#008CFF;
+    --blue-dark:#0069C2;
+    --slate:#406380;
+    --slate-dark:#1F3547;
+    --orange:#FF7100;
+    --gold:#FFBA00;
+    --sky:#29ABE2;
+    --cream:#FAF7F1;
+    --ink:#152230;
+    --ink-soft:#4A5A68;
+    --paper:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Playfair Display',serif; font-weight:600; line-height:1.15; color:var(--slate-dark);}
+  a{text-decoration:none; color:inherit;}
+  .eyebrow{font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange);}
+  .divider{width:44px; height:3px; background:var(--gold); border-radius:2px; margin:16px 0 22px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:8px; font-weight:600; font-size:.95rem; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
+  .btn-fill{background:var(--orange); color:#fff; box-shadow:0 8px 20px rgba(255,113,0,.28);}
+  .btn-fill:hover{background:#E6650A; transform:translateY(-2px); box-shadow:0 12px 26px rgba(255,113,0,.36);}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.85); color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.12); transform:translateY(-2px);}
+  .btn-outline-gold{border:1.5px solid var(--gold); color:var(--gold);}
+  .btn-outline-gold:hover{background:rgba(255,186,0,.12); transform:translateY(-2px);}
+  section{padding:96px 8vw;}
+  @media(max-width:760px){section{padding:64px 6vw;}}
+
+  /* NAV */
+  nav{position:absolute; top:0; left:0; right:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:28px 6vw;}
+  .logo{display:flex; align-items:center; gap:10px; color:#fff;}
+  .logo-mark{width:38px; height:38px;}
+  .logo-word{font-family:'Playfair Display',serif; font-weight:600; letter-spacing:.06em; font-size:1.05rem;}
+  .nav-links{display:flex; gap:40px;}
+  .nav-links a{color:#fff; font-size:.92rem; font-weight:500; letter-spacing:.02em; position:relative;}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:width .2s ease;}
+  .nav-links a:hover::after{width:100%;}
+  @media(max-width:640px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{position:relative; overflow:hidden;}
+  .hotspot{position:absolute; display:block; z-index:5;}
+  .hotspot:hover{outline:2px solid rgba(255,255,255,.4); outline-offset:2px; border-radius:6px;}
+
+  /* HEART OF HOME */
+  .heart{display:grid; grid-template-columns:1fr 1.15fr; gap:60px; align-items:center; background:var(--cream);}
+  @media(max-width:860px){.heart{grid-template-columns:1fr;}}
+  .heart h2{font-size:2.3rem; margin-bottom:18px;}
+  .heart p{color:var(--ink-soft); font-size:1.02rem; max-width:460px;}
+  .mood-panel{position:relative; border-radius:20px; overflow:hidden; aspect-ratio:6/5; box-shadow:0 30px 60px -20px rgba(20,40,60,.35);}
+  .mood-panel svg{width:100%; height:100%; display:block;}
+
+  /* EXPERIENCE */
+  .experience{text-align:center; background:var(--paper);}
+  .experience .eyebrow, .experience h2{display:block; text-align:center;}
+  .experience h2{font-size:2.3rem; margin-bottom:52px;}
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1080px; margin:0 auto;}
+  @media(max-width:820px){.cards{grid-template-columns:1fr; max-width:420px;}}
+  .card{background:var(--paper); border:1px solid rgba(64,99,128,.12); border-radius:16px; padding:34px 28px; text-align:left; box-shadow:0 6px 20px -12px rgba(21,34,48,.15); transition:transform .2s ease, box-shadow .2s ease;}
+  .card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(21,34,48,.25);}
+  .icon-badge{width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .icon-badge svg{width:26px; height:26px;}
+  .card h3{font-size:1.2rem; margin-bottom:10px; font-family:'Inter',sans-serif; font-weight:700; color:var(--slate-dark);}
+  .card p{color:var(--ink-soft); font-size:.95rem;}
+
+  /* COMING SOON */
+  .coming{background:linear-gradient(120deg, var(--slate-dark) 0%, var(--blue-dark) 60%, var(--blue) 130%); color:#fff; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  @media(max-width:820px){.coming{grid-template-columns:1fr;}}
+  .coming .eyebrow{color:var(--gold);}
+  .coming h2{color:#fff; font-size:2.1rem; margin-bottom:14px;}
+  .coming p{color:rgba(255,255,255,.82); max-width:420px; margin-bottom:28px;}
+  .checklist{list-style:none; display:flex; flex-direction:column; gap:16px;}
+  .checklist li{display:flex; align-items:center; gap:14px; font-size:.98rem; color:rgba(255,255,255,.92);}
+  .check-dot{width:26px; height:26px; min-width:26px; border-radius:50%; background:rgba(255,186,0,.16); border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center;}
+  .check-dot svg{width:13px; height:13px;}
+  .coming-head{margin-bottom:10px;}
+  .coming-list-head{font-weight:700; margin-bottom:18px; font-size:.98rem; color:#fff;}
+
+  /* FOOTER */
+  footer{background:var(--cream); text-align:center; padding:56px 6vw 40px; border-top:3px solid var(--gold);}
+  .footer-logo{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:6px;}
+  .footer-logo .logo-word{color:var(--blue-dark); font-size:1.3rem;}
+  .footer-tagline{font-family:'Playfair Display',serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:22px;}
+  .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
+  .footer-links a:hover{color:var(--orange);}
+</style>
+</head>
+<body>
+
+<section class="hero" style="padding:0;">
+  <img src="hero_photo.png" alt="Harmanwe premium furnished residence at dusk" style="width:100%; height:100%; object-fit:cover; display:block;">
+  <!-- invisible clickable hotspots matching the nav and CTA positions already in the photo -->
+  <a href="#heart" class="hotspot" style="top:3%; left:70.5%; width:8%; height:5%;" aria-label="About"></a>
+  <a href="#experience" class="hotspot" style="top:3%; left:79%; width:9%; height:5%;" aria-label="Experience"></a>
+  <a href="#contact" class="hotspot" style="top:3%; left:89.5%; width:8%; height:5%;" aria-label="Contact"></a>
+  <a href="#experience" class="hotspot" style="top:82.5%; left:5%; width:17%; height:5.5%;" aria-label="Explore Harmanwe"></a>
+  <a href="#contact" class="hotspot" style="top:82.5%; left:23.5%; width:14%; height:5.5%;" aria-label="Contact Us"></a>
+</section>
+
+<section class="heart" id="heart">
+  <div>
+    <span class="eyebrow">The Heart of Home</span>
+    <div class="divider"></div>
+    <h2>The Heart of Home</h2>
+    <p>At Harmanwe, every residence is thoughtfully prepared to help guests feel comfortable from the moment they arrive. We combine quality furnishings, modern technology, and attentive hospitality to create spaces that feel welcoming, dependable, and genuinely cared for.</p>
+  </div>
+  <div class="mood-panel">
+    <img src="interior_photo.png" alt="Harmanwe furnished living room" style="width:100%; height:100%; object-fit:cover; display:block;">
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <span class="eyebrow">Our Promise</span>
+  <h2>The Harmanwe Experience</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon-badge" style="background:rgba(0,140,255,.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+      </div>
+      <h3>Quality Homes</h3>
+      <p>Well-appointed residences maintained to the highest standards for your comfort and peace of mind.</p>
+    </div>
+    <div class="card">
+      <div class="icon-badge" style="background:rgba(255,186,0,.15);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5.5 12a11 11 0 0 1 13 0"/><path d="M9 15.5a6 6 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="var(--gold)"/></svg>
+      </div>
+      <h3>Smart Living</h3>
+      <p>Modern technology that enhances convenience without sacrificing simplicity.</p>
+    </div>
+    <div class="card">
+      <div class="icon-badge" style="background:rgba(255,113,0,.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18"/><path d="M5 17a7 7 0 0 1 14 0"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1.2" fill="var(--orange)"/></svg>
+      </div>
+      <h3>Personal Hospitality</h3>
+      <p>Thoughtful service inspired by boutique hotels and concierge experiences.</p>
+    </div>
+  </div>
+</section>
+
+<section class="coming" id="contact">
+  <div>
+    <span class="eyebrow coming-head">Coming Soon</span>
+    <h2>Something Extraordinary Is Coming</h2>
+    <p>The Harmanwe Concierge Platform is currently under development.</p>
+    <a href="#" class="btn btn-outline-gold">Keep Me Updated →</a>
+  </div>
+  <div>
+    <div class="coming-list-head">Soon you'll be able to:</div>
+    <ul class="checklist">
+      <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Explore Harmanwe residences</li>
+      <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Book premium extended stays</li>
+      <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Access digital concierge services</li>
+      <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Receive personalized local recommendations</li>
+      <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Control select smart-home features during your stay</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <img src="harmanwe_logo.png" alt="Harmanwe" style="height:44px; width:auto;">
+  </div>
+  <div class="footer-tagline">The Heart of Home</div>
+  <div class="footer-links">
+    <span>© 2026 Harmanwe, LLC. All Rights Reserved.</span>
+    <span>•</span><a href="#">Privacy</a>
+    <span>•</span><a href="#">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
