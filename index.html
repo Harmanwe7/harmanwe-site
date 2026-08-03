@@ -56,8 +56,8 @@
 
   /* HERO */
   .hero{position:relative; overflow:hidden;}
-  .hotspot{position:absolute; display:block; z-index:5;}
-  .hotspot:hover{outline:2px solid rgba(255,255,255,.4); outline-offset:2px; border-radius:6px;}
+  .hotspot{position:absolute; display:block; z-index:5; border-radius:6px; transition:background .2s ease, box-shadow .2s ease; cursor:pointer;}
+  .hotspot:hover{background:rgba(255,255,255,.15); box-shadow:0 0 18px rgba(255,255,255,.25);}
 
   /* HEART OF HOME */
   .heart{display:grid; grid-template-columns:1fr 1.15fr; gap:60px; align-items:center; background:var(--cream);}
