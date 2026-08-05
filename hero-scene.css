@@ -1,0 +1,204 @@
+/* ============================================================
+   HARMANWE Living Hero — Scene Styles
+   Layer stack (bottom → top):
+   1. .hw-plate imgs (photo plates, cross-faded)
+   2. .hw-sky     (interpolated sky gradient, screen blend)
+   3. .hw-warm    (warm atmosphere, screen blend)
+   4. .hw-cool    (cool/night atmosphere, multiply blend)
+   5. .hw-glow-*  (window / porch / landscape light glows)
+   6. .hw-mist    (ground mist)
+   7. canvas.hw-particles (stars, fireflies, rain, snow, birds)
+   8. .hw-scrim   (adaptive text-contrast gradient)
+   All values are driven by CSS custom properties set from JS.
+   ============================================================ */
+
+[data-hw-hero] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #1b2733;
+}
+
+/* Hero copy, logo, and CTAs always render above every scene layer */
+[data-hw-hero] > *:not(.hw-plate):not(.hw-layer):not(.hw-glow):not(.hw-particles) {
+  position: relative;
+  z-index: 2;
+}
+[data-hw-hero] .hw-plate,
+[data-hw-hero] .hw-layer,
+[data-hw-hero] .hw-glow,
+[data-hw-hero] canvas.hw-particles { z-index: 1; }
+
+/* ---- Photographic plates ---------------------------------- */
+[data-hw-hero] .hw-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(var(--hw-bri, 1))
+          saturate(var(--hw-sat, 1))
+          contrast(var(--hw-con, 1))
+          sepia(var(--hw-sep, 0))
+          hue-rotate(var(--hw-hue, 0deg));
+  transition: opacity 4s ease;
+  will-change: opacity;
+}
+[data-hw-hero] .hw-plate.hw-plate--under { opacity: 1; }
+[data-hw-hero] .hw-plate.hw-plate--over  { opacity: var(--hw-blend, 0); }
+
+/* ---- Atmosphere layers ------------------------------------ */
+[data-hw-hero] .hw-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 3s ease;
+}
+.hw-sky {
+  background: var(--hw-sky, transparent);
+  mix-blend-mode: screen;
+  opacity: var(--hw-sky-o, 0);
+}
+.hw-warm {
+  background: var(--hw-warm, transparent);
+  mix-blend-mode: screen;
+  opacity: var(--hw-warm-o, 0);
+}
+.hw-cool {
+  background: var(--hw-cool, transparent);
+  mix-blend-mode: multiply;
+  opacity: var(--hw-cool-o, 0);
+}
+.hw-mist {
+  background: linear-gradient(to top,
+    rgba(255,255,255, var(--hw-mist-o, 0)) 0%,
+    transparent 35%);
+  opacity: var(--hw-mist-show, 0);
+}
+
+/* ---- Light glows ------------------------------------------ */
+.hw-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 3s ease;
+}
+.hw-glow--window {
+  background: radial-gradient(ellipse,
+    rgba(255, 220, 130, var(--hw-glow-win, 0)) 0%,
+    rgba(255, 200, 80, calc(var(--hw-glow-win, 0) * 0.4)) 40%,
+    transparent 70%);
+}
+.hw-glow--porch {
+  background: radial-gradient(ellipse,
+    rgba(255, 230, 160, var(--hw-glow-porch, 0)) 0%,
+    rgba(255, 210, 100, calc(var(--hw-glow-porch, 0) * 0.3)) 45%,
+    transparent 75%);
+}
+.hw-glow--landscape {
+  background: radial-gradient(ellipse,
+    rgba(255, 240, 200, var(--hw-glow-land, 0)) 0%,
+    rgba(255, 220, 140, calc(var(--hw-glow-land, 0) * 0.3)) 40%,
+    transparent 70%);
+}
+
+/* ---- Particle canvas -------------------------------------- */
+canvas.hw-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---- Text contrast scrim ---------------------------------- */
+.hw-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, var(--hw-scrim, 0.35)) 0%,
+    rgba(0, 0, 0, calc(var(--hw-scrim, 0.35) * 0.5)) 50%,
+    transparent 100%);
+  z-index: 1;
+}
+
+/* ---- Wind / foliage sway ---------------------------------- */
+@keyframes hw-sway {
+  0%, 100% { transform: skewX(0deg); }
+  50%      { transform: skewX(0.3deg); }
+}
+[data-hw-hero].hw-wind .hw-plate {
+  animation: hw-sway 8s ease-in-out infinite;
+}
+
+/* ---- Weather overlays ------------------------------------- */
+.hw-weather-cloud {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(180, 190, 200, var(--hw-cloud-o, 0)) 0%,
+    transparent 100%);
+  transition: opacity 4s ease;
+}
+
+/* ---- Reduced motion --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-hw-hero] .hw-plate,
+  [data-hw-hero] .hw-layer,
+  .hw-glow { transition: none !important; }
+  [data-hw-hero].hw-wind .hw-plate { animation: none !important; }
+  canvas.hw-particles { display: none !important; }
+}
+
+/* ---- Admin panel ------------------------------------------ */
+.hw-admin {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(20, 30, 40, 0.95);
+  color: #e0e0e0;
+  font: 13px/1.5 'SF Mono', 'Consolas', monospace;
+  padding: 16px 24px;
+  z-index: 9999;
+  display: none;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 186, 0, 0.3);
+}
+.hw-admin.hw-admin--show { display: block; }
+.hw-admin label { display: inline-block; margin-right: 18px; }
+.hw-admin input[type="range"] {
+  width: 260px;
+  vertical-align: middle;
+  accent-color: #FFBA00;
+}
+.hw-admin select {
+  background: #2a3a4a;
+  color: #e0e0e0;
+  border: 1px solid #4a5a6a;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.hw-admin .hw-admin-row { margin-bottom: 8px; }
+.hw-admin button {
+  background: #FFBA00;
+  color: #1b2733;
+  border: none;
+  padding: 4px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 12px;
+}
+.hw-admin button:hover { background: #e6a800; }
+.hw-admin .hw-admin-readout {
+  color: #FFBA00;
+  font-weight: 600;
+  min-width: 120px;
+  display: inline-block;
+}
