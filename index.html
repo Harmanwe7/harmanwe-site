@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Harmanwe — Crafting Exceptional Places to Call Home</title>
+<title>Harmanwe — The Heart of Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -59,7 +59,7 @@
   @media(max-width:640px){.nav-links{display:none;}}
 
   /* HERO */
-  .hero{position:relative; overflow:hidden; min-height:100vh;}
+  .hero{position:relative; overflow:hidden;}
   .hotspot{position:absolute; display:block; z-index:5; border-radius:6px; transition:background .2s ease, box-shadow .2s ease; cursor:pointer;}
   .hotspot:hover{background:rgba(255,255,255,.15); box-shadow:0 0 18px rgba(255,255,255,.25);}
 
@@ -124,7 +124,6 @@
   .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
   .footer-links a:hover{color:var(--orange);}
 </style>
-<link rel="stylesheet" href="hero-scene.css">
 </head>
 <body>
 
@@ -132,7 +131,7 @@
   <a href="#vacancy"><span class="pulse-dot"></span> Now Leasing — View Vacancy</a>
 </div>
 
-<section class="hero" data-hw-hero style="padding:0;">
+<section class="hero" style="padding:0;">
   <img src="hero_photo.png" alt="Harmanwe premium furnished residence at dusk" style="width:100%; height:100%; object-fit:cover; display:block;">
   <!-- invisible clickable hotspots matching the nav and CTA positions already in the photo -->
   <a href="#heart" class="hotspot" style="top:3%; left:70.5%; width:8%; height:5%;" aria-label="About"></a>
@@ -226,7 +225,5 @@
   </div>
 </footer>
 
-<script src="hero-config.js"></script>
-<script src="hero-scene.js" defer></script>
 </body>
 </html>
