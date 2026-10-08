@@ -103,22 +103,52 @@
   .footer-tagline{font-family:'Playfair Display',serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:22px;}
   .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
   .footer-links a:hover{color:var(--orange);}
+
+  /* ---- Accessibility & contrast fixes (Phase 1) ---- */
+  :root{--orange-deep:#C2410C; --orange-deeper:#9A3412; --blue-deep:#0069C2;}
+  .eyebrow{color:var(--orange-deep);}
+  .btn-fill, .btn-apply{background:var(--orange-deep); box-shadow:0 8px 20px rgba(194,65,12,.28);}
+  .btn-fill:hover, .btn-apply:hover{background:var(--orange-deeper);}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .skip-link{position:absolute; left:-9999px; top:12px; z-index:100; background:#fff; color:var(--slate-dark); padding:10px 16px; border-radius:8px; font-weight:600;}
+  .skip-link:focus{left:16px;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--blue-deep); outline-offset:3px; border-radius:4px;}
+  input:focus, select:focus, textarea:focus{outline:3px solid rgba(0,105,194,.45); outline-offset:1px; border-color:var(--blue-deep);}
+  header a:focus-visible, header button:focus-visible, .vacancy a:focus-visible, .coming a:focus-visible, .email-card a:focus-visible, .eho a:focus-visible, .announce-bar a:focus-visible, .hero a:focus-visible{outline-color:var(--gold);}
+  .btn-email{background:var(--blue-deep); box-shadow:0 8px 20px rgba(0,105,194,.28);}
+  .req{color:var(--orange-deep);}
+
+  /* ---- Responsive header menu (Phase 1) ---- */
+  .menu-toggle{display:none;}
+  @media(max-width:760px){
+    header{position:relative; flex-wrap:nowrap;}
+    .menu-toggle{display:inline-flex; align-items:center; gap:8px; min-height:44px; min-width:44px; padding:8px 14px; background:none; border:1.5px solid rgba(255,255,255,.5); border-radius:8px; color:#fff; font:600 .9rem 'Inter',sans-serif; cursor:pointer;}
+    header nav{display:none; position:absolute; top:100%; left:0; right:0; z-index:40; flex-direction:column; gap:0; padding:4px 6vw 16px; background:var(--slate-dark); box-shadow:0 12px 24px rgba(21,34,48,.25);}
+    header nav.open{display:flex;}
+    header nav a{display:block; padding:14px 0; border-top:1px solid rgba(255,255,255,.12); font-size:1rem;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
   <a href="/" class="logo">
-    <img src="harmanwe_logo_white.png" alt="Harmanwe">
-    <span class="logo-word">HARMANWE</span>
+    <img src="harmanwe_logo_white_sm.png" alt="Harmanwe home">
   </a>
-  <nav>
+  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    Menu
+  </button>
+  <nav id="site-nav" aria-label="Main">
     <a href="/#heart">About</a>
     <a href="/#experience">Experience</a>
     <a href="/rental-qualification.html">Qualify to Rent</a>
     <a href="/contact.html">Contact</a>
   </nav>
 </header>
+
+<main id="main">
 
 <section class="intro">
   <span class="eyebrow">Get In Touch</span>
@@ -193,9 +223,11 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-logo">
-    <img src="harmanwe_logo.png" alt="Harmanwe" style="height:44px; width:auto;">
+    <img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;">
   </div>
   <div class="footer-tagline">The Heart of Home</div>
   <div class="footer-links">
@@ -284,5 +316,14 @@
   });
 </script>
 
+<script>
+  (function(){
+    var btn = document.querySelector('.menu-toggle'), nav = document.getElementById('site-nav');
+    if(!btn || !nav) return;
+    function setOpen(open){ nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    btn.addEventListener('click', function(){ setOpen(!nav.classList.contains('open')); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && nav.classList.contains('open')){ setOpen(false); btn.focus(); } });
+  })();
+</script>
 </body>
 </html>

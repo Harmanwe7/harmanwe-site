@@ -12,7 +12,7 @@ content="Premium furnished residential rentals in Chesapeake, VA and the Hampton
 content="https://www.harmanwe.com/"> <meta property="og:image"
 content="https://www.harmanwe.com/hero_photo.png"> <meta name="twitter:card"
 content="summary_large_image">                                                 
-<title>Harmanwe — The Heart of Home</title>
+<title>Harmanwe — Rental Homes in Chesapeake, VA | The Heart of Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -133,16 +133,35 @@ content="summary_large_image">
   .footer-tagline{font-family:'Playfair Display',serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:22px;}
   .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
   .footer-links a:hover{color:var(--orange);}
+
+  /* ---- Accessibility & contrast fixes (Phase 1) ---- */
+  :root{--orange-deep:#C2410C; --orange-deeper:#9A3412; --blue-deep:#0069C2;}
+  .eyebrow{color:var(--orange-deep);}
+  .btn-fill, .btn-apply{background:var(--orange-deep); box-shadow:0 8px 20px rgba(194,65,12,.28);}
+  .btn-fill:hover, .btn-apply:hover{background:var(--orange-deeper);}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .skip-link{position:absolute; left:-9999px; top:12px; z-index:100; background:#fff; color:var(--slate-dark); padding:10px 16px; border-radius:8px; font-weight:600;}
+  .skip-link:focus{left:16px;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--blue-deep); outline-offset:3px; border-radius:4px;}
+  input:focus, select:focus, textarea:focus{outline:3px solid rgba(0,105,194,.45); outline-offset:1px; border-color:var(--blue-deep);}
+  header a:focus-visible, header button:focus-visible, .vacancy a:focus-visible, .coming a:focus-visible, .email-card a:focus-visible, .eho a:focus-visible, .announce-bar a:focus-visible, .hero a:focus-visible{outline-color:var(--gold);}
+  .announce-bar{background:var(--orange-deep);}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <div class="announce-bar">
   <a href="#vacancy"><span class="pulse-dot"></span> Now Leasing — View Vacancy</a>
 </div>
 
+<main id="main">
 <section class="hero" style="padding:0;">
-  <img src="hero_photo.png" alt="Harmanwe premium furnished residence at dusk" style="width:100%; height:100%; object-fit:cover; display:block;">
+  <h1 class="sr-only">Crafting Exceptional Places to Call Home</h1>
+  <picture style="display:block; width:100%; height:100%;">
+    <source srcset="hero_photo_640.webp 640w, hero_photo.webp 1024w" sizes="100vw" type="image/webp">
+    <img src="hero_photo.png" alt="Harmanwe premium furnished residence at dusk" width="1024" height="629" fetchpriority="high" style="width:100%; height:100%; object-fit:cover; display:block;">
+  </picture>
   <!-- invisible clickable hotspots matching the nav and CTA positions already in the photo -->
   <a href="#heart" class="hotspot" style="top:3%; left:70.5%; width:8%; height:5%;" aria-label="About"></a>
   <a href="#experience" class="hotspot" style="top:3%; left:79%; width:9%; height:5%;" aria-label="Experience"></a>
@@ -159,7 +178,7 @@ content="summary_large_image">
     <p>At Harmanwe, every residence is thoughtfully prepared to help guests feel comfortable from the moment they arrive. We combine quality furnishings, modern technology, and attentive hospitality to create spaces that feel welcoming, dependable, and genuinely cared for.</p>
   </div>
   <div class="mood-panel">
-    <img src="interior_photo.png" alt="Harmanwe furnished living room" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <picture style="display:block; width:100%; height:100%;"><source srcset="interior_photo.webp" type="image/webp"><img src="interior_photo.png" alt="Harmanwe furnished living room" loading="lazy" width="625" height="361" style="width:100%; height:100%; object-fit:cover; display:block;"></picture>
   </div>
 </section>
 
@@ -210,7 +229,7 @@ content="summary_large_image">
     <span class="eyebrow coming-head">Coming Soon</span>
     <h2>Something Extraordinary Is Coming</h2>
     <p>The Harmanwe Concierge Platform is currently under development.</p>
-    <a href="#" class="btn btn-outline-gold">Keep Me Updated →</a>
+    <a href="/contact.html" class="btn btn-outline-gold">Keep Me Updated →</a>
   </div>
   <div>
     <div class="coming-list-head">Soon you'll be able to:</div>
@@ -224,15 +243,16 @@ content="summary_large_image">
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-logo">
-    <img src="harmanwe_logo.png" alt="Harmanwe" style="height:44px; width:auto;">
+    <img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;">
   </div>
   <div class="footer-tagline">The Heart of Home</div>
   <div class="footer-links">
     <span>© 2026 Harmanwe, LLC. All Rights Reserved.</span>
     <span>•</span><a href="/rental-qualification.html">Qualification Criteria</a>
-    <span>•</span><a href="#">Privacy</a>
     <span>•</span><a href="/contact.html">Contact</a>
   </div>
 </footer>
