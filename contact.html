@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Contact Harmanwe, LLC — email us directly or send an inquiry through our website form. Premium furnished residential rentals in Chesapeake, VA and the Hampton Roads area.">
+<meta name="description" content="Contact Harmanwe, LLC by phone, email or our website form. Long-term rental homes and furnished monthly stays in Chesapeake, VA.">
 <link rel="canonical" href="https://www.harmanwe.com/contact.html">
 <meta property="og:title" content="Contact Harmanwe — The Heart of Home">
 <meta property="og:description" content="Email Harmanwe directly or send an inquiry through our website contact form.">
@@ -127,6 +127,12 @@
     header nav.open{display:flex;}
     header nav a{display:block; padding:14px 0; border-top:1px solid rgba(255,255,255,.12); font-size:1rem;}
   }
+
+  /* ---- Shared nav and footer (Phase 2) ---- */
+  header nav{gap:28px;}
+  header nav a[aria-current="page"]{color:var(--gold);}
+  @media(min-width:761px) and (max-width:1040px){header nav{gap:18px;} header nav a{font-size:.86rem;}}
+  .eho{margin-top:14px; font-size:.8rem; color:var(--ink-soft); letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -141,10 +147,11 @@
     Menu
   </button>
   <nav id="site-nav" aria-label="Main">
-    <a href="/#heart">About</a>
-    <a href="/#experience">Experience</a>
+    <a href="/homes-for-rent.html">Homes for Rent</a>
+    <a href="/furnished-stays.html">Furnished Stays</a>
     <a href="/rental-qualification.html">Qualify to Rent</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/#heart">About</a>
+    <a href="/contact.html" aria-current="page">Contact</a>
   </nav>
 </header>
 
@@ -201,7 +208,8 @@
             <label for="reason">Reason for Inquiry</label>
             <select id="reason" name="reason">
               <option value="">Select one (optional)</option>
-              <option value="Property Availability">Property Availability</option>
+              <option value="Long-Term Rental">Long-term rental</option>
+              <option value="Furnished Stay">Furnished stay (30+ nights)</option>
               <option value="Application Question">Application Question</option>
               <option value="Current Resident">Current Resident</option>
               <option value="General Inquiry">General Inquiry</option>
@@ -233,9 +241,12 @@
   <div class="footer-links">
     <span>© 2026 Harmanwe, LLC. All Rights Reserved.</span>
     <span>•</span><a href="/">Home</a>
+    <span>•</span><a href="/homes-for-rent.html">Homes for Rent</a>
+    <span>•</span><a href="/furnished-stays.html">Furnished Stays</a>
     <span>•</span><a href="/rental-qualification.html">Qualification Criteria</a>
     <span>•</span><a href="/contact.html">Contact</a>
   </div>
+  <p class="eho">Equal Housing Opportunity</p>
 </footer>
 
 <script>

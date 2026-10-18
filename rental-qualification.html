@@ -143,6 +143,12 @@
     header nav.open{display:flex;}
     header nav a{display:block; padding:14px 0; border-top:1px solid rgba(255,255,255,.12); font-size:1rem;}
   }
+
+  /* ---- Shared nav and footer (Phase 2) ---- */
+  header nav{gap:28px;}
+  header nav a[aria-current="page"]{color:var(--gold);}
+  @media(min-width:761px) and (max-width:1040px){header nav{gap:18px;} header nav a{font-size:.86rem;}}
+  .eho{margin-top:14px; font-size:.8rem; color:var(--ink-soft); letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -157,9 +163,10 @@
     Menu
   </button>
   <nav id="site-nav" aria-label="Main">
+    <a href="/homes-for-rent.html">Homes for Rent</a>
+    <a href="/furnished-stays.html">Furnished Stays</a>
+    <a href="/rental-qualification.html" aria-current="page">Qualify to Rent</a>
     <a href="/#heart">About</a>
-    <a href="/#experience">Experience</a>
-    <a href="/rental-qualification.html" class="current" aria-current="page">Qualify to Rent</a>
     <a href="/contact.html">Contact</a>
   </nav>
 </header>
@@ -286,9 +293,12 @@
   <div class="footer-links">
     <span>© 2026 Harmanwe, LLC. All Rights Reserved.</span>
     <span>•</span><a href="/">Home</a>
+    <span>•</span><a href="/homes-for-rent.html">Homes for Rent</a>
+    <span>•</span><a href="/furnished-stays.html">Furnished Stays</a>
     <span>•</span><a href="/rental-qualification.html">Qualification Criteria</a>
     <span>•</span><a href="/contact.html">Contact</a>
   </div>
+  <p class="eho">Equal Housing Opportunity</p>
   <p class="footer-disclaimer">This page describes Harmanwe's general rental qualification criteria and is provided for informational purposes. It is not legal advice.</p>
 </footer>
 
