@@ -118,10 +118,11 @@
   .footer-tagline{font-family:'Montserrat',sans-serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:22px;}
   .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
   .footer-links a:hover{color:var(--orange);}
-  .reg{font-family:'Open Sans',sans-serif; font-size:.68rem; font-weight:600; line-height:1; margin-left:3px; align-self:flex-start; position:relative; top:2px;}
-  .footer-logo .reg{color:var(--slate-dark);}
-  .logo .reg, .footer-logo .reg{margin-left:-8px;}
-  .hero-logo{display:inline-flex; align-items:flex-start; color:#fff;}
+  .logo-tm{position:relative; display:inline-block; line-height:0;}
+  .logo-tm img{display:block;}
+  .reg{position:absolute; left:76.5%; top:67.5%; transform:translate(-50%,-50%); font-family:'Open Sans',sans-serif; font-size:8px; font-weight:600; line-height:1; color:#fff; pointer-events:none;}
+  .hero-logo .reg{font-size:9px;}
+  .footer-logo .reg{color:var(--blue, #008CFF);}
   .footer-tm{max-width:640px; margin:14px auto 0; font-size:.76rem; color:var(--ink-soft);}
   .footer-contact{font-style:normal; color:var(--ink-soft); font-size:.9rem; line-height:1.7; margin-bottom:16px;}
   .footer-contact a{color:var(--slate-dark); font-weight:600;}
@@ -168,7 +169,7 @@
 
 <header>
   <a href="/" class="logo">
-    <img src="harmanwe_logo_white_sm.png" alt="Harmanwe home"><sup class="reg" aria-label="registered trademark">®</sup>
+    <span class="logo-tm"><img src="harmanwe_logo_white_sm.png" alt="Harmanwe home"><sup class="reg" aria-label="registered trademark">®</sup></span>
   </a>
   <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -239,7 +240,7 @@
 
 <footer>
   <div class="footer-logo">
-    <img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;"><sup class="reg" aria-label="registered trademark">®</sup>
+    <span class="logo-tm"><img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;"><sup class="reg" aria-label="registered trademark">®</sup></span>
   </div>
   <div class="footer-tagline">The Heart of Home</div>
   <address class="footer-contact">

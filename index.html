@@ -173,10 +173,11 @@ content="summary_large_image">
   .footer-tagline{font-family:'Montserrat',sans-serif; font-style:italic; color:var(--ink-soft); font-size:.98rem; margin-bottom:22px;}
   .footer-links{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--ink-soft); font-size:.85rem;}
   .footer-links a:hover{color:var(--orange);}
-  .reg{font-family:'Open Sans',sans-serif; font-size:.68rem; font-weight:600; line-height:1; margin-left:3px; align-self:flex-start; position:relative; top:2px;}
-  .footer-logo .reg{color:var(--slate-dark);}
-  .logo .reg, .footer-logo .reg{margin-left:-8px;}
-  .hero-logo{display:inline-flex; align-items:flex-start; color:#fff;}
+  .logo-tm{position:relative; display:inline-block; line-height:0;}
+  .logo-tm img{display:block;}
+  .reg{position:absolute; left:76.5%; top:67.5%; transform:translate(-50%,-50%); font-family:'Open Sans',sans-serif; font-size:8px; font-weight:600; line-height:1; color:#fff; pointer-events:none;}
+  .hero-logo .reg{font-size:9px;}
+  .footer-logo .reg{color:var(--blue, #008CFF);}
   .footer-tm{max-width:640px; margin:14px auto 0; font-size:.76rem; color:var(--ink-soft);}
   .footer-contact{font-style:normal; color:var(--ink-soft); font-size:.9rem; line-height:1.7; margin-bottom:16px;}
   .footer-contact a{color:var(--slate-dark); font-weight:600;}
@@ -213,7 +214,7 @@ content="summary_large_image">
   <div class="hero-shade" aria-hidden="true"></div>
   <span class="photo-note">Representative image</span>
   <nav class="hero-nav" aria-label="Main">
-    <a href="/" class="hero-logo"><img src="harmanwe_logo_white_sm.png" alt="Harmanwe home" width="150" height="78"><sup class="reg" aria-label="registered trademark">®</sup></a>
+    <a href="/" class="hero-logo"><span class="logo-tm"><img src="harmanwe_logo_white_sm.png" alt="Harmanwe home" width="150" height="78"><sup class="reg" aria-label="registered trademark">®</sup></span></a>
     <div class="hero-links">
       <a href="#heart" class="hide-sm">About</a>
       <a href="#experience" class="hide-sm">Experience</a>
@@ -320,7 +321,7 @@ content="summary_large_image">
 
 <footer>
   <div class="footer-logo">
-    <img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;"><sup class="reg" aria-label="registered trademark">®</sup>
+    <span class="logo-tm"><img src="harmanwe_logo_sm.png" alt="Harmanwe" loading="lazy" style="height:44px; width:auto;"><sup class="reg" aria-label="registered trademark">®</sup></span>
   </div>
   <div class="footer-tagline">The Heart of Home</div>
   <address class="footer-contact">
