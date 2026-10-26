@@ -95,6 +95,8 @@ content="summary_large_image">
     .hero-content{margin:auto 0 0; padding:32px 6vw 48px;}
   }
 
+  .photo-note{position:absolute; right:12px; bottom:10px; z-index:3; font-size:.72rem; font-weight:500; letter-spacing:.02em; color:rgba(255,255,255,.92); background:rgba(10,20,30,.45); padding:3px 9px; border-radius:999px;}
+
   /* HEART OF HOME */
   .heart{display:grid; grid-template-columns:1fr 1.15fr; gap:60px; align-items:center; background:var(--cream);}
   @media(max-width:860px){.heart{grid-template-columns:1fr;}}
@@ -201,9 +203,10 @@ content="summary_large_image">
 <section class="hero">
   <picture class="hero-bg">
     <source srcset="hero_clean_640.webp 640w, hero_clean.webp 1024w" sizes="100vw" type="image/webp">
-    <img src="hero_clean.jpg" alt="Blue Harmanwe home at dusk with porch lights on" width="1024" height="623" fetchpriority="high">
+    <img src="hero_clean.jpg" alt="Illustrative image of a cottage-style home at dusk" width="1024" height="623" fetchpriority="high">
   </picture>
   <div class="hero-shade" aria-hidden="true"></div>
+  <span class="photo-note">Representative image</span>
   <nav class="hero-nav" aria-label="Main">
     <a href="/" class="hero-logo"><img src="harmanwe_logo_white_sm.png" alt="Harmanwe home" width="150" height="78"></a>
     <div class="hero-links">
@@ -231,7 +234,8 @@ content="summary_large_image">
     <p>At Harmanwe, every home is thoughtfully prepared and carefully maintained, so residents feel comfortable from the day they move in — whether they're settling in for years or staying a few months on assignment. We pair quality homes with responsive, personal management to create places that feel welcoming, dependable, and genuinely cared for.</p>
   </div>
   <div class="mood-panel">
-    <picture style="display:block; width:100%; height:100%;"><source srcset="interior_photo.webp" type="image/webp"><img src="interior_photo.png" alt="Harmanwe furnished living room" loading="lazy" width="625" height="361" style="width:100%; height:100%; object-fit:cover; display:block;"></picture>
+    <picture style="display:block; width:100%; height:100%;"><source srcset="interior_photo.webp" type="image/webp"><img src="interior_photo.png" alt="Illustrative image of a furnished living room" loading="lazy" width="625" height="361" style="width:100%; height:100%; object-fit:cover; display:block;"></picture>
+    <span class="photo-note">Representative image</span>
   </div>
 </section>
 
@@ -251,7 +255,7 @@ content="summary_large_image">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5.5 12a11 11 0 0 1 13 0"/><path d="M9 15.5a6 6 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="var(--gold)"/></svg>
       </div>
       <h3>Smart Living</h3>
-      <p>Modern technology that enhances convenience without sacrificing simplicity.</p>
+      <p>Modern technology in select homes that adds convenience without sacrificing simplicity.</p>
     </div>
     <div class="card">
       <div class="icon-badge" style="background:rgba(255,113,0,.12);">
@@ -323,6 +327,7 @@ content="summary_large_image">
     <span>© 2026 Harmanwe, LLC. All Rights Reserved.</span>
     <span>•</span><a href="/rental-qualification.html">Qualification Criteria</a>
     <span>•</span><a href="/contact.html">Contact</a>
+    <span>•</span><a href="/privacy.html">Privacy Policy</a>
   </div>
 </footer>
 
