@@ -137,6 +137,13 @@ content="summary_large_image">
   .btn-apply{background:var(--orange); color:#fff; box-shadow:0 8px 20px rgba(255,113,0,.28);}
   .btn-apply:hover{background:#E6650A; transform:translateY(-2px); box-shadow:0 12px 26px rgba(255,113,0,.36);}
 
+
+  /* AVAILABILITY STATUS — update this block (and the long-term card) when a home opens */
+  .availability{display:inline-flex; align-items:center; gap:10px; background:var(--paper); border:1px solid rgba(64,99,128,.2); border-radius:999px; padding:10px 20px; font-size:.92rem; font-weight:600; color:var(--slate-dark); margin:-20px auto 36px; text-align:left;}
+  .availability .dot{width:9px; height:9px; min-width:9px; border-radius:50%; background:var(--slate);}
+  .availability .muted{font-weight:400; color:var(--ink-soft);}
+  @media(max-width:560px){.availability{border-radius:14px; margin-left:0; margin-right:0;}}
+
   /* LOOKING FOR A HOME */
   .find-home{background:var(--cream); text-align:center; border-top:1px solid rgba(64,99,128,.1);}
   .find-home .eyebrow{display:block;}
@@ -277,13 +284,15 @@ content="summary_large_image">
   <span class="eyebrow">Find Your Home</span>
   <div class="divider" style="margin:16px auto 22px;"></div>
   <h2>Two Ways to Live with Harmanwe</h2>
+  <!-- AVAILABILITY STATUS: change this line when a home becomes available -->
+  <p class="availability" role="status"><span class="dot" aria-hidden="true"></span><span><strong>All homes are currently leased</strong> <span class="muted">— no vacancies at this time</span></span></p>
   <div class="paths">
     <div class="path">
       <span class="path-tag">Long-Term Homes</span>
       <h3>A place to settle in</h3>
-      <p>Well-maintained duplexes and single-family homes in Chesapeake, leased for a year or longer. Review our qualification criteria, then reach out — we'll let you know as soon as a home becomes available.</p>
+      <p>Well-maintained duplexes and single-family homes in Chesapeake, leased for a year or longer. Every home is currently occupied. Join our waitlist and we'll reach out as soon as one becomes available.</p>
       <div class="path-btns">
-        <a href="/contact.html?interest=long-term" class="btn btn-hero">Ask About Availability <span aria-hidden="true">→</span></a>
+        <a href="/contact.html?interest=long-term" class="btn btn-hero">Join the Waitlist <span aria-hidden="true">→</span></a>
         <a href="/rental-qualification.html" class="btn btn-outline-slate">Qualification Criteria</a>
       </div>
     </div>
