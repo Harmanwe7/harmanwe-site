@@ -1,0 +1,8 @@
+{
+  "_howToUpdate": "Edit this file to update the booking calendar on /extended-stays.html. Dates are YYYY-MM-DD. 'booked' ranges are blocked from check-in through the day before check-out.",
+  "minimumNights": 30,
+  "availableFrom": null,
+  "openingNote": "Our first furnished residence is opening soon. Request your dates now to reserve early availability.",
+  "monthlyRateText": "Rates quoted with your request",
+  "booked": []
+}

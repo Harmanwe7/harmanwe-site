@@ -112,7 +112,9 @@ module.exports = async (req, res) => {
     });
   }
 
-  const subject = `Harmanwe Website Inquiry — ${cleanName}`;
+  const subject = cleanReason === "Extended Stay Request"
+    ? `Extended Stay Request — ${cleanName}`
+    : `Harmanwe Website Inquiry — ${cleanName}`;
   const html = `
     <div style="font-family:Arial,sans-serif;font-size:14px;color:#152230;">
       <h2 style="color:#0069C2;margin:0 0 12px;">New Harmanwe Website Inquiry</h2>
